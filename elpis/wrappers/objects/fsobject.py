@@ -94,7 +94,7 @@ class FSObject(object):
 
     class ConfigurationInterface(object):
         """
-        Continuesly save changes to disk and only read properties from disk
+        Continously save changes to disk and only read properties from disk
         (in the JSON file storing the objects configuration).
 
         This class is more syntax sugar. Particularly so we can treat the

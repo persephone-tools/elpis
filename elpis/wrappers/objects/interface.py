@@ -48,7 +48,7 @@ class KaldiInterface(FSObject):
         self.transcriptions = {}
         """
         TODO: temporarily don't set config here while we are still doing
-        hacky mode of checking ig config_file_path.exists() in fsobject.py
+        hacky mode of checking if config_file_path.exists() in fsobject.py
         because this is wiping exising object info from interface.json.
         When we are happy with proper way of using existing state, change this.
         """
@@ -109,8 +109,6 @@ class KaldiInterface(FSObject):
     def list_datasets(self):
         names = [name for name in self.config['datasets'].keys()]
         return names
-
-
 
     def new_pron_dict(self, pdname):
         pd = PronDict(parent_path=self.pron_dicts_path, name=pdname, logger=self.logger)
