@@ -8,6 +8,7 @@ from elpis.wrappers.objects.dataset import Dataset
 from elpis.wrappers.objects.pron_dict import PronDict
 from elpis.wrappers.objects.logger import Logger
 from elpis.wrappers.objects.model import Model
+from elpis.wrappers.objects.persephone_model import PersephoneModel
 from elpis.wrappers.objects.transcription import Transcription
 from elpis.wrappers.objects.fsobject import FSObject
 
@@ -139,7 +140,7 @@ class KaldiInterface(FSObject):
 
 
     def new_model(self, mname):
-        m = Model(parent_path=self.models_path, name=mname, logger=self.logger)
+        m = PersephoneModel(parent_path=self.models_path, name=mname, logger=self.logger)
         models = self.config['models']
         models[mname] = m.hash
         self.config['models'] = models
