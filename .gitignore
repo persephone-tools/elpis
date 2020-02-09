@@ -32,3 +32,5 @@ build/
 dist/
 venv/
 elpis-gui/
+
+*swp

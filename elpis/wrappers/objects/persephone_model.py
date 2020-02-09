@@ -109,5 +109,16 @@ class PersephoneModel(FSObject):
         if on_complete:
             run_training_in_background()
         else:
-            model.train(max_epochs=10)
+            model.train(max_epochs=1)
             self.status = "trained"
+
+    def get_results(self):
+        train_log_path = self.path / "exp" / "test_exp" / "train_log.txt"
+        with open(train_log_path) as f:
+            lines = f.readlines()
+        epoch_lines = [line for line in lines if line.startswith("Epoch")]
+        final_line = epoch_lines[-1]
+        sp = final_line.split()
+        training_per = sp[4].strip(",")
+        valid_per = sp[7]
+        return training_per, valid_per
